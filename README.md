@@ -30,7 +30,7 @@ holding a job after graduation...etc.
 
 ## Later discussion notes
 
-- Powerpoint slides are cirriculum
+- Powerpoint slides are curriculum
   - wants to upload and click through them on the site
   - divided by sections and topics
   - apply cirriculum to a profile (check off that items were done, admin confirms completion, admin writes notes, other admins notified)
