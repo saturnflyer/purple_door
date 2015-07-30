@@ -21,6 +21,8 @@ gem 'turbolinks'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'foundation-rails'
+
 gem 'passenger'
 group :development, :test do
   gem 'pry-byebug'
