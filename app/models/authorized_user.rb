@@ -2,6 +2,6 @@ require 'delegate'
 
 class AuthorizedUser < SimpleDelegator
   def can?(permission)
-    self.permissions.include?(permission)
+    superuser? || self.permissions.include?(permission)
   end
 end
