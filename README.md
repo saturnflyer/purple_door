@@ -46,3 +46,31 @@ holding a job after graduation...etc.
 - wants export the data and/or search for information
 - connect calendar to google calendars
 - prompt admin to write notes right away after cirriculum meeting
+
+## Dev environment setup
+
+* Ruby 2.2.2
+* Rails 4.2
+* [Postgres](http://www.postgresql.org/) 9.4
+* Clone the repo: `git clone git@github.com:saturnflyer/purple_door.git`
+* `bundle install`
+* `bundle exec rake db:setup`
+* `bundle exec rake` to run the test suite
+
+## Using rails server
+
+* `bundle exec rails server`
+* Browse to [http://localhost:3000](http://localhost:3000) to confirm everything works.
+
+## Using Pow
+
+* Check out [pow.cx](http://pow.cx) and follow those instructions
+
+## Team Communications
+
+* Slack Channel - [https://rubyforgood.slack.com/messages/purple/](https://rubyforgood.slack.com/messages/purple/)
+* Github Issues - [https://github.com/saturnflyer/purple_door/issues](https://github.com/saturnflyer/purple_door/issues)
+* Waffle.io - [https://waffle.io/saturnflyer/purple_door](https://waffle.io/saturnflyer/purple_door)
+
+ 
+
