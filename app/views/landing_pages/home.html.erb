@@ -1,1 +1,15 @@
-<h1>Home</h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Home</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <% if user_signed_in? %>
+      <%= link_to "View curriculums", curriculums_path %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+  </div>
+</div>
