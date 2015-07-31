@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'passenger'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -17,4 +18,3 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
 end
-
