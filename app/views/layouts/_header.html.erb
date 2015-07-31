@@ -10,7 +10,7 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <!--li><a href="#">Right Button Active</a></li-->
+      <li><%= link_to "Events", '/events' %></li>
       <% if user_signed_in? %>
       <li class="has-dropdown">
         <a href="#"><%= current_user.email %></a>
