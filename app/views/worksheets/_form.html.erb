@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="large-8 columns">
+    <%= form_for worksheet do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div>
+        <%= f.label :summary %>
+        <%= f.text_area :summary %>
+      </div>
+      <%= f.hidden_field :topic_id %>
+      <div id="objectives-list">
+        <label>Objectives</label>
+        <%= f.fields_for :objectives, worksheet.objectives.new do |ff| %>
+          <div class='row'>
+            <div class="small-11 columns">
+              <%= ff.text_field :description, placeholder: 'Objective description' %>
+            </div>
+            <div class="small-1 columns">
+            </div>
+          </div>
+        <% end %>
+        <% worksheet.objectives.select(&:persisted?).each do |objective| %>
+          <%= f.fields_for :objectives, objective do |ff| %>
+            <div class='row' id='<%= objective.id %>'>
+              <div class="small-11 columns">
+                <%= ff.text_field :description, placeholder: 'objective description' %>
+              </div>
+              <a href='#' class='remove-item button tiny'>x</a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to "Add Objective", "#add-objective", :id => "add-objective" %>
+      <div id="questions-list">
+        <label>Questions</label>
+        <%= f.fields_for :questions, worksheet.questions.new do |ff| %>
+          <div class='row'>
+            <div class="small-11 columns">
+              <%= ff.text_field :description, placeholder: 'Question description' %>
+            </div>
+            <div class="small-1 columns">
+            </div>
+          </div>
+        <% end %>
+        <% worksheet.questions.select(&:persisted?).each do |question| %>
+          <%= f.fields_for :questions, question do |ff| %>
+            <div class='row' id='<%= question.id %>'>
+              <div class="small-11 columns">
+                <%= ff.text_field :description, placeholder: 'question description' %>
+              </div>
+              <a href='#' class='remove-item button tiny'>x</a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to "Add Question", "#add-question", :id => "add-question" %>
+      <div>
+        <%= f.submit class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

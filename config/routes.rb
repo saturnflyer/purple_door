@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  root to: 'landing_pages#home'
+  resources :worksheets
+  resources :objectives, only: :destroy
+  resources :questions,  only: :destroy
+
   devise_for :users
   resources :curriculums, except: :new do
     resources :topics
   end
   get 'events/' => 'events#calendar'
   
+  root to: 'landing_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

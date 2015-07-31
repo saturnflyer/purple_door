@@ -5,4 +5,16 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Worksheets</h2>
+    <ul>
+    <% @topic.worksheets.each do |worksheet| %>
+      <li><%= link_to worksheet.title, edit_worksheet_path(curriculum: @curriculum, topic: @topic) %></li>
+    <% end %>
+    </ul>
+    <%= link_to "New Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic) %>
+  </div>
+</div>
+
 <!-- documents, ppt, wordsheets -->
