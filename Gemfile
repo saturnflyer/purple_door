@@ -11,6 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'passenger'
 gem 'devise'
+gem 'cancancan', '~> 1.12.0'
 
 group :development, :test do
   gem 'pry-byebug'
