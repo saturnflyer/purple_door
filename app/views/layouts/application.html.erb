@@ -16,10 +16,16 @@
     <%= render 'layouts/header' %>
 
     <% if notice %>
-      <p><%= notice %></p>
+    <div data-alert class="alert-box success">
+      <%= notice %>
+      <a href="#" class="close">&times;</a>
+    </div>
     <% end %>
     <% if alert %>
-      <p><%= alert %></p>
+    <div data-alert class="alert-box alert">
+      <%= alert %>
+      <a href="#" class="close">&times;</a>
+    </div>
     <% end %>
 
     <%= yield %>

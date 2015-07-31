@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h5>Edit a new topic</h5>
+    <%= form_for [@curriculum, @topic] do |f| %>
+      <div class="row">
+        <div class="medium-6 small-12 columns">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.submit "Edit topic", class: 'button small' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= link_to "Delete this topic", [@curriculum, @topic], method: :delete, data: { confirm: "This cannot be undone. Are you sure? "}, class: "button alert tiny" %>
+  </div>
+</div>
