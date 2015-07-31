@@ -2,7 +2,7 @@
 <table>
   <% @users.each do |user| %>
     <tr>
-      <td><%= link_to "#{user.first_name user.last_name}", user_path(user) %></td>
+      <td><%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %></td>
     </tr>
  <% end %>
 </table>
