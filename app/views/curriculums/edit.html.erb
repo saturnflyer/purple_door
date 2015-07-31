@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Edit <%= @curriculum.name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= form_for @curriculum do |f| %>
+      <div class="row">
+        <div class="medium-6 small-12 columns">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.submit "Edit curriculum", class: 'button small' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= link_to "Delete this curriculum", @curriculum, method: :delete, data: { confirm: "This cannot be undone. Are you sure? "}, class: "button alert tiny" %>
+  </div>
+</div>
