@@ -24,7 +24,9 @@
 $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
   $('#calendar').fullCalendar({
-    // put your options and callbacks here
+    header: {
+      center: 'month,agendaWeek,agendaDay'
+    }
   });
   $('.datetime-start').fdatetimepicker();
   $('.datetime-end').fdatetimepicker();
