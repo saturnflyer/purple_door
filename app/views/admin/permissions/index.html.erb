@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Permissions for <%= @user_name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= form_tag admin_user_permissions_path(@user), method: :PATCH do |f| %>
+      <% @permission.each_with_index do |permission, i| %>
+        <div class="row">
+          <div class="medium-6 small-12 columns">
+            <%= f.label permission %>
+            <%= f.checkbox_tag "#{permission}_i" %>
+            <%= f.submit "Edit curriculum", class: 'button small' %>
+          </div>
+	</div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

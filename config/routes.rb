@@ -7,8 +7,14 @@ Rails.application.routes.draw do
   resources :curriculums, except: :new do
     resources :topics
   end
-  get 'events/' => 'events#calendar'
-  
-  root to: 'landing_pages#home'
 
+  namespace :admin do
+    resources :users, only: []  do
+      resource :permissions, only: [:edit, :update]
+    end
+  end
+
+  get 'events/' => 'events#calendar'
+
+  root to: 'landing_pages#home'
 end
