@@ -4,7 +4,7 @@ module Admin
     before_action
 
     def edit
-      return if redirect_if_disallowed
+      return if redirect_unauthorized
 
       @available_permissions = PERMISSIONS
       @permissions = @user.permissions
@@ -12,7 +12,7 @@ module Admin
     end
 
     def update
-      return if redirect_if_disallowed
+      return if redirect_unauthorized
 
       current_user.permissions.clear
       if params["permissions"]
@@ -31,7 +31,7 @@ module Admin
       @user = AuthorizedUser.new(@user) if @user
     end
 
-    def redirect_if_disallowed
+    def redirect_unauthorized
       if current_user.nil? ||
          @user.superuser?
          !AuthorizedUser.new(current_user).can?("Manage permissions")
