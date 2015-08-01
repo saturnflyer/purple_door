@@ -2,19 +2,38 @@
   * {
     margin: 0;
     padding:0;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
   }
 
-  .fc-right {
-    button {
-      padding-left: 20px;
-      padding-right: 20px;
+  .fc-left {
+    h2 {
+      font-size: 20px;
     }
+  }
 
-    .fc-state-disabled {
-      transition: none;
-      &:hover {
-        background: none;
-      }
+  button {
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #e6e6e6;
+    border: none;
+  }
+  .fc-state-hover {
+    color: black;
+  }
+
+  .fc-state-active {
+    color: black;
+  }
+
+  .fc-content {
+    &:hover {
+
     }
   }
 }
