@@ -28,6 +28,5 @@ $(document).on('ready page:load', function () {
       center: 'month,agendaWeek,agendaDay'
     }
   });
-  $('.datetime-start').fdatetimepicker();
-  $('.datetime-end').fdatetimepicker();
+  $('.date').fdatetimepicker({format: "mm/dd/yyyy", disableDblClickSelection: true});
 });

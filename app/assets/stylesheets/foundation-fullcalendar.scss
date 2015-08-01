@@ -17,19 +17,17 @@
     }
   }
 
+  button {
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #e6e6e6;
+    border: none;
+  }
+  .fc-state-hover {
+    color: black;
+  }
 
-    button {
-      padding-left: 20px;
-      padding-right: 20px;
-      background: #e6e6e6;
-      border: none;
-    }
-    .fc-state-hover {
-      color: black;
-    }
-
-    .fc-state-active {
-      color: black;
-    }
-
+  .fc-state-active {
+    color: black;
+  }
 }
