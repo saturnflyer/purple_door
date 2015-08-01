@@ -1,5 +1,15 @@
 <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-<%= link_to "Edit User Info", edit_user_path(@user.id) %>
+<% u = AuthorizedUser.new(current_user) %>
+<% if u.can?("edit_user") %>
+  <div>
+    <%= link_to "Edit User Info", edit_user_path(@user.id) %>
+  </div>
+<% end %>
+<% if u.can?("manage_permissions") %>
+  <div>
+    <%= link_to "Manage User Permissions", edit_admin_user_permissions_path(@user.id) %>
+  </div>
+<% end %>
 <br>
 <div>
   <div><p><strong>Birthdate:</strong> <%= "#{@user.birthdate}" %></p></div>

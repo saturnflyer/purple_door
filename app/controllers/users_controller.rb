@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    return unless allowed("create_user")
+
     if user = User.add_user(create_user_params)
       flash[:notice] = "User added!"
       redirect_to user_path(user.id)
@@ -15,10 +17,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    return unless allowed("edit_user")
+
     @user = User.lookup_user(user_lookup_params)
   end
 
   def update
+    return unless allowed("edit_user")
+
     if user = User.lookup_user(user_lookup_params)
       user.edit_info!(edit_user_params)
       flash[:notice] = "User info updated!"
