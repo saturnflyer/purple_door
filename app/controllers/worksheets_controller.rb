@@ -10,6 +10,7 @@ class WorksheetsController < ApplicationController
   def create
     @worksheet = current_topic.worksheets.new(worksheet_params)
     if worksheet.save
+      flash[:notice] = "Worksheet created!"
       redirect_to curriculum_topic_path(current_topic.curriculum_id, current_topic)
     else
       render :new
@@ -23,6 +24,7 @@ class WorksheetsController < ApplicationController
   def update
     @worksheet = current_topic.worksheets.find(params[:id])
     if worksheet.update_attributes(worksheet_params)
+      flash[:notice] = "Worksheet updated!"
       redirect_to curriculum_topic_path(current_topic.curriculum_id, current_topic)
     else
       render :edit
