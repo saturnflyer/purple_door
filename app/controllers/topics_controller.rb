@@ -3,11 +3,7 @@ class TopicsController < ApplicationController
   before_action :load_topic, only: [:show, :edit, :update]
 
   def create
-    if params[:parent_id].nil?
-      @topic = @curriculum.topics.create(topic_params)
-    else
-      @topic = Topic.create(topic_params, :parent_id => params[:parent_id])
-    end
+    @topic = @curriculum.topics.create(topic_params)
     redirect_to @curriculum
   end
 
@@ -26,14 +22,13 @@ class TopicsController < ApplicationController
   end
 
   def new
-    {"parent_id"=>"2", "controller"=>"topics", "action"=>"new", "curriculum_id"=>"1"}
-    @topic = Topic.new(:curriculum_id => @curriculum, :parent_id => params[:parent_id])
+    @topic = Topic.new(:curriculum => @curriculum, :parent_id => params[:parent_id])
   end
 
   private
 
   def topic_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, :parent_id)
   end
 
   def load_curriculum
