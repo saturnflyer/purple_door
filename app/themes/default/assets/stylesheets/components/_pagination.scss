@@ -1,0 +1,23 @@
+.pagination {
+  border-top: $base-border;
+  margin-top: $base-spacing;
+  padding-top: $base-spacing;
+  text-align: center;
+
+  span {
+    border-radius: $base-border-radius;
+    border: $base-border;
+    color: lighten($base-font-color, 30%);
+    margin-right: $small-spacing;
+    padding: ($small-spacing / 2) $small-spacing;
+
+    a {
+      color: $base-font-color;
+
+      &:focus,
+      &:hover {
+        color: $action-color;
+      }
+    }
+  }
+}
