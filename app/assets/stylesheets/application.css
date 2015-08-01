@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  *= require foundation_and_overrides
 
  */
@@ -44,3 +45,4 @@
 .signup-panel .button {
   margin-left: 35%;
 }
+
