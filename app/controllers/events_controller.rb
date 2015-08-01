@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  def calendar
+  end
+
   def new
     @event = Event.new
   end
@@ -10,7 +13,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-
   end
 
   private
