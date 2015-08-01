@@ -14,6 +14,7 @@ gem 'devise'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'foundation-datetimepicker-rails'
+gem 'foundation-icons-sass-rails'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="small-8 columns">
+    <div id="calendar"></div>
+  </div>
+  <div class="small-4 columns">
+    <%= form_for @event do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_field :description %>
+      <%= f.text_field :date, class: "date" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
