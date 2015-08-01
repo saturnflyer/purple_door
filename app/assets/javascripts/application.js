@@ -13,14 +13,43 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require moment
 //= require fullcalendar
+//= require turbolinks
+//= require foundation-datetimepicker
 //= require_tree .
 
 $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
-  $('#calendar').fullCalendar({
-    // put your options and callbacks here
+
+  $.get('/events.json', function(rawEvents) {
+
+    var events = [];
+    for (var i = 0; i < rawEvents.length; i++) {
+      events.push({
+        title: rawEvents[i].name,
+        start: rawEvents[i].date,
+        eventId: rawEvents[i].id
+      });
+    }
+
+    $('#calendar').fullCalendar({
+      header: {
+        center: 'month,agendaWeek,agendaDay'
+      },
+      events: events,
+      eventClick: function(calEvent) {
+        var url = '/events/' + calEvent.eventId;
+        window.location.href = url;
+      }
+    });
+  });
+
+
+  $('#event-date-picker').fdatetimepicker({
+    minView: 2,
+    format: 'yyyy-mm-dd', 
+    disableDblClickSelection: true,
+    autoclose: true,
   });
 });

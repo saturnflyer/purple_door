@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Events</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-8 columns">
+    <div id="calendar"></div>
+  </div>
+  <div class="small-4 columns">
+
+    <h5>Add an event</h5>
+
+    <% if @event.errors.any? %>
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    <% end %>
+
+    <%= form_for @event do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :user_id, "User" %>
+      <%= f.collection_select :user_id, @users, :id, :first_name, include_blank: true %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+      <%= f.label :date %>
+      <%= f.text_field :date, id: "event-date-picker" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
