@@ -5,8 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.add_user(create_user_params)
-    redirect_to user_path(user.id)
+    if user = User.add_user(create_user_params)
+      flash[:notice] = "User added!"
+      redirect_to user_path(user.id)
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      redirect_to :back
+    end
   end
 
   def edit
@@ -14,10 +19,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.lookup_user user_lookup_params
-    user.edit_info!(edit_user_params)
-    #TODO add flash message
-    redirect_to user_path(user.id)
+    if user = User.lookup_user(user_lookup_params)
+      user.edit_info!(edit_user_params)
+      flash[:notice] = "User info updated!"
+      redirect_to user_path(user.id)
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      redirect_to :back
+    end
   end
 
   def index
@@ -31,7 +40,6 @@ class UsersController < ApplicationController
   private
 
   def user_lookup_params
-    #TODO validate and flash messages/error handling
     params.permit(:id)
   end
 
