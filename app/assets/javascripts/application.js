@@ -16,8 +16,6 @@
 //= require moment
 //= require fullcalendar
 //= require turbolinks
-//= require moment
-//= require fullcalendar
 //= require foundation-datetimepicker
 //= require_tree .
 
