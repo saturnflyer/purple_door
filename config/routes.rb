@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   resources :curriculums, except: :new do
     resources :topics
   end
-  
+
+  namespace :admin do
+    resources :users, only: []  do
+      resource :permissions, only: [:edit, :update]
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
