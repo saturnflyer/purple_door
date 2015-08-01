@@ -1,31 +1,35 @@
-<div class="row">
+<div class="row header">
   <div class="small-12 columns">
-    <h2><%= @curriculum.name %></h2>
-    <!-- if admin -->
-    <span><%= link_to "edit", edit_curriculum_path %></span>
-    <!-- end -->
+    <h2><%= @curriculum.name %> Curriculum
+      <small class="edit_controls">
+        <!-- if admin -->
+          <%= link_to "Edit", edit_curriculum_path, :class=>"tiny button" %></span>
+        <!-- end -->
+      </small>
+    </h2>
+    
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
+<div class="container">
+  <div class="row">
+  <h3>Topics</h3>
+
+  <table class="small-12">
     <%= render @topics %>
+  </table>
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
-    <h5>Create a new topic</h5>
+<div class="row container">
+    <h5>Add a new topic</h5>
     <%= form_for [@curriculum, @curriculum.topics.build] do |f| %>
       <div class="row">
         <div class="medium-6 small-12 columns">
-          <%= f.label :name %>
           <%= f.text_field :name %>
           <%= f.submit "Add new topic", class: 'button small' %>
         </div>
       </div>
-    <% end %>
-  </div>
+    <% end %>  
 </div>
-
 

@@ -1,23 +1,22 @@
-<div class="row">
+<div class="row header">
   <div class="small-12 columns">
     <h2>Curriculums</h2>
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
+<div class="container">
+  <table class="row twelve">
     <%= render @curriculums %>
-  </div>
+  </table>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
+<div class="row add_box">
+  <div class="small-12">
     <!-- later, this will be a separate page where a custom list of topics can be made -->
-    <h5>Create a new curriculum</h5>
+    <h5>Add a new curriculum</h5>
     <%= form_for @curriculum do |f| %>
       <div class="row">
         <div class="medium-6 small-12 columns">
-          <%= f.label :name %>
           <%= f.text_field :name %>
           <%= f.submit "Add new curriculum", class: 'button small' %>
         </div>
