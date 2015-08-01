@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true,
+                    uniqueness: true
+  validates :birthdate, presence: true
+
+  has_many :events
+
   def self.lookup_user user_id
     User.find(user_id[:id].to_i)
   end
