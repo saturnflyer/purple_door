@@ -26,6 +26,5 @@ $(document).on('ready page:load', function () {
   $('#calendar').fullCalendar({
     // put your options and callbacks here
   });
-  $('.datetime-start').fdatetimepicker();
-  $('.datetime-end').fdatetimepicker();
+  $('.date').fdatetimepicker({format: "mm/dd/yyyy", disableDblClickSelection: true});
 });
