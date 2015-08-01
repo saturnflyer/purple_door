@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
- *= require bootstrap-datetimepicker.min
  *= require foundation_and_overrides
  */
 

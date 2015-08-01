@@ -12,10 +12,8 @@ gem 'foundation-rails'
 gem 'passenger'
 gem 'devise'
 gem 'fullcalendar-rails'
-gem 'simple_form'
 gem 'momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
-gem 'bootstrap-sass'
+gem 'foundation-datetimepicker-rails'
 
 group :development, :test do
   gem 'pry-byebug'
