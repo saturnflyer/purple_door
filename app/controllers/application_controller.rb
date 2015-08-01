@@ -5,7 +5,18 @@ class ApplicationController < ActionController::Base
 
   PERMISSIONS = %w[
     annotate_worksheets
+    create_user
+    edit_user
     manage_curriculum
     manage_permissions
   ]
+
+  def allowed(permission)
+    unless AuthorizedUser.new(current_user).can?(permission)
+      flash[:error] = "Sorry, but you don't have permission for that"
+      redirect_to root_path
+      return false
+    end
+    true
+  end
 end

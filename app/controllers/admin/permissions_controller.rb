@@ -3,7 +3,13 @@ module Admin
     before_action :find_user
 
     def edit
-      return if redirect_unauthorized
+      return unless allowed("manage_permissions")
+
+      if @user.superuser?
+        flash[:alert] = "Sorry, but you don't have permission for that"
+        redirect_to root_path
+        return
+      end
 
       @available_permissions = PERMISSIONS
       @permissions = @user.permissions
@@ -11,7 +17,13 @@ module Admin
     end
 
     def update
-      return if redirect_unauthorized
+      return unless allowed("manage_permissions")
+
+      if @user.superuser?
+        flash[:alert] = "Sorry, but you don't have permission for that"
+        redirect_to root_path
+        return
+      end
 
       current_user.permissions.clear
       if params["permissions"]
@@ -28,17 +40,6 @@ module Admin
     def find_user
       @user = User.find(params[:user_id])
       @user = AuthorizedUser.new(@user) if @user
-    end
-
-    def redirect_unauthorized
-      if current_user.nil? ||
-         @user.superuser?
-         !AuthorizedUser.new(current_user).can?("Manage permissions")
-        flash[:error] = "Sorry, but you don't have permission for that"
-        redirect_to root_path
-        return true
-      end
-      false
     end
   end
 end
