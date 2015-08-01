@@ -13,6 +13,8 @@ gem 'passenger'
 gem 'devise'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+gem 'twitter'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry-byebug'
