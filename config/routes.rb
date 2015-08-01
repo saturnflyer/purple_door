@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   resources :users
   devise_for :users
-  resources :curriculums, except: :new do
-    resources :topics
-  end
 
   namespace :admin do
     resources :users, only: []  do
@@ -15,7 +12,11 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'events/' => 'events#calendar'
+  resources :events, except: [:new]
+
+  resources :curriculums, except: :new do
+    resources :topics
+  end
 
   root to: 'landing_pages#home'
 end

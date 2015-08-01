@@ -11,14 +11,9 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-<<<<<<< HEAD
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Events", events_path %></li>
-=======
       <li><%= link_to "Curriculums", curriculums_path %></li>
       <li><%= link_to "Users", '/users' %></li>
       <li><%= link_to "Events", '/events' %></li>
->>>>>>> b370b483897c40ffe9276655ede4278982b73849
       <li class="has-dropdown">
         <a href="#"><%= current_user.email %></a>
         <ul class="dropdown">

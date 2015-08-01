@@ -63,3 +63,20 @@ footer {
   height: 100px;
   width: 100%;
 }
+.header{
+  background-color: rgb(187, 224, 237);
+}
+
+.container{
+  margin-top: 20px;
+}
+
+.add_box{
+  margin-top: 50px;
+}
+
+.edit_controls {
+  float:right;
+  margin-top: 10px;
+  margin-right: 3px;
+}
