@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
     User.find(user_id[:id].to_i)
   end
 
-  def self.add_user user_params
+  def self.add_user! user_params
     User.create!(email: user_params[:email], password: user_params[:password], first_name: user_params[:first_name], last_name: user_params[:last_name], birthdate: user_params[:birthdate])
+  end
+
+  def edit_info! edit_params
+    self.update!(email: edit_params[:email], password: edit_params[:password], first_name: edit_params[:first_name], last_name: edit_params[:last_name], birthdate: edit_params[:birthdate])
   end
 end
