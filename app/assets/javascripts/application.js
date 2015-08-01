@@ -13,14 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require moment
+//= require fullcalendar
 //= require turbolinks
 //= require moment
 //= require fullcalendar
+//= require foundation-datetimepicker
 //= require_tree .
 
 $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
   $('#calendar').fullCalendar({
-    // put your options and callbacks here
+    header: {
+      center: 'month,agendaWeek,agendaDay'
+    }
   });
+  $('.date').fdatetimepicker({format: "mm/dd/yyyy", disableDblClickSelection: true});
 });

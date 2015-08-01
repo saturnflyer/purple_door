@@ -11,8 +11,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'passenger'
 gem 'devise'
-gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'foundation-datetimepicker-rails'
+gem 'foundation-icons-sass-rails'
 
 group :development, :test do
   gem 'pry-byebug'
