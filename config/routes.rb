@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events
+  resources :events, except: [:new]
+
   resources :curriculums, except: :new do
     resources :topics
   end
