@@ -11,6 +11,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'passenger'
 gem 'devise'
+gem 'fullcalendar-rails'
+gem 'simple_form'
+gem 'momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'pry-byebug'
