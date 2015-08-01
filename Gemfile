@@ -14,10 +14,15 @@ gem 'devise'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 gem 'ancestry', '~> 2.1.0'
+gem "minitest-rails"
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
   gem 'binding_of_caller'
   gem 'better_errors'
+end
+
+group :test do
+  gem "minitest-rails-capybara"
 end
