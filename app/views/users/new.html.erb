@@ -1,0 +1,20 @@
+<h1>Add a new Employee</h1>
+
+<%= form_for @user, url: users_path, method: :post do |f| %>
+  <%= f.label "Email" %>
+  <%= f.email_field :email, required: true %>
+  <br>
+   <%= f.label "Password" %>
+  <%= f.text_field :password, :required => true %>
+  <br>
+  <%= f.label "First Name" %>
+  <%= f.text_field :first_name, :required => true %>
+  <br>
+  <%= f.label "Last Name" %>
+  <%= f.text_field :last_name, :required => true %>
+  <br>
+  <%= f.label "Birthdate" %>
+  <%= f.date_field :birthdate, :required => true %>
+  <br>
+  <button>Add User</button>
+<% end %>

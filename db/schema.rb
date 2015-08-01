@@ -49,10 +49,8 @@ ActiveRecord::Schema.define(version: 20150801144811) do
     t.integer  "curriculum_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.string   "ancestry"
   end
 
-  add_index "topics", ["ancestry"], name: "index_topics_on_ancestry", using: :btree
   add_index "topics", ["curriculum_id"], name: "index_topics_on_curriculum_id", using: :btree
 
   create_table "user_worksheets", force: :cascade do |t|
@@ -77,6 +75,10 @@ ActiveRecord::Schema.define(version: 20150801144811) do
     t.datetime "updated_at",                          null: false
     t.string   "permissions",            default: [],              array: true
     t.boolean  "superuser"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthdate"
+    t.string   "profile_image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

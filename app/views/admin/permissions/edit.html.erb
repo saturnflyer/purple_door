@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Permissions for <%= @user_name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <%= form_tag admin_user_permissions_path(user_id: @user.id), method: "put" do  %>
+      <% @available_permissions.each do |permission| %>
+        <div class="row">
+          <div class="medium-6 small-12 columns">
+	    <% checkbox_name = "permissions[#{permission}]" %>
+	    <%= label_tag permission.titleize %>
+	    <% if @user.can?(permission) %>
+              <%= check_box_tag checkbox_name, 1, true %>
+	    <% else %>
+              <%= check_box_tag checkbox_name, 1 %>
+	    <% end %>
+          </div>
+	</div>
+      <% end %>
+      <%= submit_tag "Update permissions", class: 'button small' %>
+    <% end %>
+  </div>
+</div>

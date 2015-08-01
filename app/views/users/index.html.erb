@@ -1,0 +1,22 @@
+<h1>Users</h1>
+<table>
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Role</th>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <% #TODO att role %>
+      <td> Role </td>
+      <td><%= link_to "View User Info",  user_path(user.id) %></td>
+      <td><%= link_to "Edit User Info",  edit_user_path(user.id) %></td>
+    </tr>
+ <% end %>
+</table>
+<br>
+<%= link_to "Add New User", new_user_path %>
+
+
