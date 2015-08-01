@@ -1,7 +1,6 @@
 module Admin
   class PermissionsController < ApplicationController
     before_action :find_user
-    before_action
 
     def edit
       return if redirect_unauthorized
