@@ -12,15 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require foundation
 //= require moment
 //= require fullcalendar
-//= require bootstrap-datetimepicker
-//= require pickers
 //= require turbolinks
 //= require moment
 //= require fullcalendar
+//= require foundation-datetimepicker
 //= require_tree .
 
 $(document).on('ready page:load', function () {
@@ -28,4 +26,6 @@ $(document).on('ready page:load', function () {
   $('#calendar').fullCalendar({
     // put your options and callbacks here
   });
+  $('.datetime-start').fdatetimepicker();
+  $('.datetime-end').fdatetimepicker();
 });
