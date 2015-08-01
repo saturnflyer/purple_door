@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'events/' => 'events#calendar'
 
   root to: 'landing_pages#home'
+  resources :events
 end
