@@ -11,6 +11,7 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
+      <li><%= link_to "Curriculums", curriculums_path %></li>
       <li><%= link_to "Users", '/users' %></li>
       <li><%= link_to "Events", '/events' %></li>
       <li class="has-dropdown">
