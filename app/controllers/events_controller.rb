@@ -1,25 +1,32 @@
 class EventsController < ApplicationController
+
+  before_action :load_events, only: [:index, :create]
+  before_action :load_users, only: [:index, :create]
+
   def index
     @event = Event.new
   end
 
-  def new
-    
-  end
-
   def create
-    #datetime = Time.strptime(event_params[:datetime], "%m/%d/%Y")
-    #Event.create(user_id: 999, name: event_params[:name], datetime: datetime, user_id: 3)
-    #redirect_to root_path
+    @event = Event.new(event_params)
+    @event.save
+    render :index
   end
 
   def destroy
-
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :start)
+    params.require(:event).permit(:name, :description, :date, :user_id)
+  end
+
+  def load_events
+    @events = Event.all
+  end
+
+  def load_users
+    @users = User.all
   end
 end

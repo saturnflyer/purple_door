@@ -28,5 +28,10 @@ $(document).on('ready page:load', function () {
       center: 'month,agendaWeek,agendaDay'
     }
   });
-  $('.date').fdatetimepicker({format: "mm/dd/yyyy", disableDblClickSelection: true});
+  $('.date').fdatetimepicker({
+    minView: 2,
+    format: 'yyyy-mm-dd', 
+    disableDblClickSelection: true,
+    autoclose: true,
+  });
 });
