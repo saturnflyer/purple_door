@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :objectives, only: :destroy
   resources :questions,  only: :destroy
 
-  resources :users
   devise_for :users
+  resources :users
+  
   resources :curriculums, except: :new do
     resources :topics
   end
