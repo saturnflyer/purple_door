@@ -1,22 +1,47 @@
 <div class="row">
   <div class="small-12 columns">
-    <h2><%= @topic.name %></h2>
-    <%= link_to "Add Sub Topic", new_curriculum_topic_path(@curriculum, :parent_id => @topic) %>
-    <%= link_to "Edit", edit_curriculum_topic_path(@curriculum, @topic) %>
+    <h2><%= @topic.name %>
+      <small class="edit_controls">
+        <!-- if admin -->
+          
+          <%= link_to "Edit", edit_curriculum_topic_path(@curriculum, @topic), :class=>"tiny button" %>
+          <%= link_to "Add Sub Topic", new_curriculum_topic_path(@curriculum, :parent_id => @topic), :class=>"tiny button" %>
+          <% if @topic.worksheets.empty? %>
+            <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic), :class => "tiny button" %>
+          <% end %>
+        <!-- end -->
+      </small>
+    </h2>
+    
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns">
-    <h2>Worksheets</h2>
-    <ul>
-    <% @topic.worksheets.each do |worksheet| %>
-      <li><%= link_to worksheet.title, edit_worksheet_path(curriculum: @curriculum, topic: @topic) %></li>
-    <% end %>
-    </ul>
-    <%= link_to "New Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic) %>
+
+<% if @topic.descendants.present? %>
+  <div class="row container">
+    <div class="small-12 columns">
+      <h3>Sub Topics</h3>
+      <table class="small-12">
+        <%= render @topic.descendants(:at_depth => 1) %>
+      </table>
+    </div>
   </div>
-</div>
+<% end %>
+
+<% if @topic.worksheets.present? %>
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Worksheets</h2>
+      <ul>
+      <% @topic.worksheets.each do |worksheet| %>
+        <li><%= link_to worksheet.title, edit_worksheet_path(curriculum: @curriculum, topic: @topic) %></li>
+      <% end %>
+      </ul>
+      <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic) %>
+    </div>
+  </div>
+<% end %>
+
 
 <div class="row">
   <div class="small-12 columns">

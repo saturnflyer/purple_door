@@ -13,7 +13,7 @@ class CurriculumsController < ApplicationController
   end
 
   def show
-    @topics = @curriculum.topics
+    @topics = @curriculum.topics.top_level
   end
 
   def edit
