@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def allowed(permission)
     unless AuthorizedUser.new(current_user).can?(permission)
-      flash[:error] = "Sorry, but you don't have permission for that"
+      flash[:alert] = "Sorry, but you don't have permission for that"
       redirect_to root_path
       return false
     end

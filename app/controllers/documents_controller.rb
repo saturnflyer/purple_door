@@ -1,4 +1,4 @@
-class DocumentsController < ApplicationController
+class DocumentsController < ContentController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :find_curriculum
   before_action :find_topic

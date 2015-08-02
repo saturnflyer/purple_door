@@ -55,11 +55,11 @@
   <div class="row">
     <div class="small-12 columns">
       <h3>Documents
-        <!-- if admin -->
+	<% if can?(:manage_curriculum) %>
           <small class="edit_controls">
             <%= link_to "Add Document", new_curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic), :class => "tiny button" %>
           </small>
-        <!-- end -->
+	<% end %>
       </h3>
       <table class="small-12">
         <thead>
@@ -78,4 +78,3 @@
     </div>
   </div>
 <% end %>
-

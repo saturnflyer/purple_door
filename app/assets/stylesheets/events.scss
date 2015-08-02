@@ -1,9 +1,24 @@
-.event {
-  border-bottom: 1px solid #E0E0E0;
-  padding: 10px 5px;
-  display: block;
-  &:hover {
-    background: #EFEFEF;
-    cursor: pointer;
+.date {
+  padding: 5px 15px;
+  .date-headline {
+    display: block;
+    font-size: 20px;
   }
+
+  .event {
+    display: block;
+  }
+
+  .event-odd {
+    background: #d0e8f0;
+  }
+
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.no-events {
+  text-align: center;
+  border: 1px solid #E0E0E0;
+  padding: 25px;
+  margin-top: 70px;
 }

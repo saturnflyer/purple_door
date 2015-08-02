@@ -28,14 +28,6 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
-  
+
   has_many :events
-
-  def admin?
-    permissions.any?
-  end
-
-  def employee?
-    permissions.none?
-  end
 end

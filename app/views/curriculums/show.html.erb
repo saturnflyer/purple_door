@@ -22,16 +22,18 @@
 </div>
 <% end %>
 
-<div class="row container">
-  <div class="small-12 columns">
-    <h5>Add a new topic</h5>
-    <%= form_for [@curriculum, @curriculum.topics.build] do |f| %>
+<% if can?(:manage_curriculum) %>
+  <div class="row container">
+    <div class="small-12 columns">
+      <h5>Add a new topic</h5>
+      <%= form_for [@curriculum, @curriculum.topics.build] do |f| %>
       <div class="row">
-        <div class="medium-6 small-12 columns">
+	<div class="medium-6 small-12 columns">
           <%= f.text_field :name %>
           <%= f.submit "Add new topic", class: 'button small' %>
-        </div>
+	</div>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

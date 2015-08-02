@@ -5,10 +5,20 @@
 </div>
 
 <div class="row">
-  <div class="small-8 columns">
-    <%= render @events %>
+  <div class="medium-8 columns">
+    <h5>Timeline</h5>
+    <% if !@events.empty? %>
+      <% @dates.each do |key, value| %>
+        <%= render partial: "date", locals: { date: key, events: value } %>
+      <% end %>
+    <% else %>
+      <p class="no-events">
+        <i>There are currently no events!</i><br />
+        <i>You can create them using the form on the right.</i>
+      </p>
+    <% end %>
   </div>
-  <div class="small-4 columns">
+  <div class="medium-4 columns">
 
     <h5>Add an event</h5>
 
@@ -21,9 +31,9 @@
     <% end %>
 
     <%= form_for @event do |f| %>
-      <%= f.label :name %>
+      <%= f.label :name, "Name of event" %>
       <%= f.text_field :name %>
-      <%= f.label :user_id, "User" %>
+      <%= f.label :user_id, "Employee" %>
       <%= f.collection_select :user_id, @users, :id, :full_name, include_blank: true %>
       <%= f.label :description %>
       <%= f.text_area :description %>

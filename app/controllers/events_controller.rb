@@ -6,6 +6,14 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
+    @dates = {}
+    @events.each do |event|
+      if @dates[event.date]
+        @dates[event.date].push(event)
+      else
+        @dates[event.date] = [event]
+      end
+    end
   end
 
   def create
@@ -18,7 +26,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = User.find(@event.user_id)
+    if (@event.user_id)
+      @user = User.find(@event.user_id)
+    end
   end
 
   def edit
@@ -35,10 +45,6 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_path
-    #respond_to do |format|
-    #  format.html { redirect_to events_path }
-    #  format.json { render json: {message: 'success'} }
-    #end
   end
 
   private

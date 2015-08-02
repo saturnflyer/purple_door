@@ -1,7 +1,7 @@
 <tr>
   <td>
     <%= link_to topic.name, curriculum_topic_path(@curriculum, topic) %>
-    <% if current_user.employee? %>
+    <% if employee? %>
       <%= worksheets_complete_for_topic_by_user(topic, current_user) %>
     <% end %>
   </td>
