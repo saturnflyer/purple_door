@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @document.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @document.title %>
+</p>
+
+<%= link_to 'Edit', edit_curriculum_topic_document_path(@curriculum, @topic, @document) %> |
+<%= link_to 'Destroy', curriculum_topic_document_path(@curriculum, @topic, @document), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', curriculum_topic_path(@curriculum, @topic) %>

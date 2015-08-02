@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :birthdate, presence: true
 
   has_many :events
+  has_many :user_worksheets
 
   def self.lookup_user user_id
     User.find(user_id[:id].to_i)
