@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require d3
 //= require foundation
 //= require turbolinks
 //= require moment
@@ -21,6 +22,7 @@
 $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
   $('#calendar').fullCalendar({
+
     // put your options and callbacks here
   });
 });
