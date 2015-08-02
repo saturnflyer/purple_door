@@ -72,12 +72,12 @@
       </h3>
       <table class="small-12">
         <thead>
-		<th>Document</th>
+        	<th>Document</th>
         </thead>
         <tbody>
         	<% @topic.documents.each do |document| %>
         	  <tr>
-		    <td><%= link_to document.title, document.url %></td>
+        	    <td><%= link_to document.title, document.url %></td>
         	  </tr>
         	<% end %>
         </tbody>
