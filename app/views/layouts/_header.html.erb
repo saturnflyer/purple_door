@@ -11,16 +11,18 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Events", events_path %></li>
-      <li><%= link_to "Curriculums", curriculums_path %></li>
-      <li class="has-dropdown">
-        <a href="#"><%= current_user.email %></a>
-        <ul class="dropdown">
-          <li><%= link_to "Profile", "#" %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete' %></li>
-        </ul>
-      </li>
+        <% if current_user.admin? %>
+          <li><%= link_to "Users", users_path %></li>
+        <% end %>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "Curriculums", curriculums_path %></li>
+        <li class="has-dropdown">
+          <a href="#"><%= current_user.email %></a>
+          <ul class="dropdown">
+            <li><%= link_to "Profile", "#" %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete' %></li>
+          </ul>
+        </li>
       <% else %>
       <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>

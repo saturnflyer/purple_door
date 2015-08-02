@@ -25,8 +25,6 @@ class User < ActiveRecord::Base
     self.update!(email: edit_params[:email], password: edit_params[:password], first_name: edit_params[:first_name], last_name: edit_params[:last_name], birthdate: edit_params[:birthdate])
   end
 
-  has_many :events
-
   def admin?
     permissions.any?
   end
