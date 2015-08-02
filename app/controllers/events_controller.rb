@@ -6,23 +6,19 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    respond_to do |format|
-      format.html
-      format.json { render json: @events }
-    end
   end
 
   def create
-    event = Event.create(event_params)
-    if event.save
-      redirect_to events_path
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to @event
     else
-      @event = event;
       render :index
     end
   end
 
   def show
+    @user = User.find(@event.user_id)
   end
 
   def edit
@@ -38,10 +34,11 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_path }
-      format.json { render json: {message: 'success'} }
-    end
+    redirect_to events_path
+    #respond_to do |format|
+    #  format.html { redirect_to events_path }
+    #  format.json { render json: {message: 'success'} }
+    #end
   end
 
   private
@@ -51,7 +48,7 @@ class EventsController < ApplicationController
   end
 
   def load_events
-    @events = Event.all
+    @events = Event.all.sort_by &:date
   end
 
   def load_event

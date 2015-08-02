@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :worksheets
+
+  resources :worksheets do
+    resources :user_worksheets
+  end
+
   resources :objectives, only: :destroy
   resources :questions,  only: :destroy
 
@@ -15,7 +19,9 @@ Rails.application.routes.draw do
   resources :events, except: [:new]
 
   resources :curriculums, except: :new do
-    resources :topics
+    resources :topics do
+      resources :documents, except: :index
+    end
   end
 
   root to: 'landing_pages#home'

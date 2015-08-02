@@ -12,7 +12,6 @@ gem 'foundation-rails'
 gem 'passenger'
 gem 'devise'
 gem 'ancestry', '~> 2.1.0'
-gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'foundation-datetimepicker-rails'
 

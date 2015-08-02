@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801194149) do
+ActiveRecord::Schema.define(version: 20150802145946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "curriculums", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "url"
+    t.string   "title"
+    t.integer  "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,9 +64,10 @@ ActiveRecord::Schema.define(version: 20150801194149) do
   create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.integer  "curriculum_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "ancestry"
+    t.integer  "ancestry_depth", default: 0
   end
 
   add_index "topics", ["ancestry"], name: "index_topics_on_ancestry", using: :btree
@@ -85,11 +94,11 @@ ActiveRecord::Schema.define(version: 20150801194149) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "permissions",            default: [],              array: true
-    t.boolean  "superuser"
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthdate"
     t.string   "profile_image"
+    t.boolean  "superuser"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
