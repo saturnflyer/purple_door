@@ -6,10 +6,10 @@ class AuthorizedUser < SimpleDelegator
   end
 
   def admin?
-    permissions.any?
+    superuser? || permissions.any?
   end
 
   def employee?
-    permissions.none?
+    !superuser? && permissions.none?
   end
 end
