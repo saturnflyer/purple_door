@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   def edit_info! edit_params
     self.update!(email: edit_params[:email], password: edit_params[:password], first_name: edit_params[:first_name], last_name: edit_params[:last_name], birthdate: edit_params[:birthdate])
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   
   has_many :events
 end

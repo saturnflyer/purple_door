@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="small-12 columns">
+    <%= link_to event_path(event), class: "event" do |f| %>
+      <h4><%= event.name %></h4>
+      <%= event.date %>
+    <% end %>
+  </div>
+</div>
