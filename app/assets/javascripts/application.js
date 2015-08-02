@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require moment
-//= require fullcalendar
 //= require turbolinks
 //= require foundation-datetimepicker
 //= require_tree .
@@ -22,7 +21,7 @@
 $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
 
-  $.get('/events.json', function(rawEvents) {
+  /*$.get('/events.json', function(rawEvents) {
 
     var events = [];
     for (var i = 0; i < rawEvents.length; i++) {
@@ -43,8 +42,7 @@ $(document).on('ready page:load', function () {
         window.location.href = url;
       }
     });
-  });
-
+  });*/
 
   $('#event-date-picker').fdatetimepicker({
     minView: 2,
