@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :worksheets
+
+  resources :worksheets do
+    resources :user_worksheets
+  end
 
   resources :objectives, only: :destroy
   resources :questions,  only: :destroy
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :curriculums, except: :new do
     resources :topics do
-      resources :documents
+      resources :documents, except: :index
     end
   end
 

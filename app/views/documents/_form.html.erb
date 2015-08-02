@@ -2,7 +2,6 @@
   <% if @document.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
-
       <ul>
       <% @document.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,14 +11,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Document", class: 'button small' %>
   </div>
 <% end %>

@@ -1,6 +1,10 @@
-<h1>Editing Document</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', curriculum_topic_document_path(@curriculum, @topic, @document) %> |
-<%= link_to 'Back', curriculum_topic_path(@curriculum, @topic) %>
+<div class="row">
+  <div class="small-12 columns">
+    <h5>
+        Edit Document
+    </h5>
+    <%= render 'form' %>
+    <%#= link_to 'Show', curriculum_topic_document_path(@curriculum, @topic, @document) %> |
+    <%= link_to 'Back', curriculum_topic_path(@curriculum, @topic) %>    
+  </div>
+</div>

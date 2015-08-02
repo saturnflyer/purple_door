@@ -1,4 +1,4 @@
-<div class="row header">
+<div class="row">
   <div class="small-12 columns">
     <h2><%= @curriculum.name %> Curriculum
       <small class="edit_controls">
@@ -11,17 +11,17 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-  <h3>Topics</h3>
-
-  <table class="small-12">
-    <%= render @topics %>
-  </table>
+<div class="row container">
+  <div class="small-12 columns">
+    <h3>Topics</h3>
+    <table class="small-12">
+      <%= render @topics %>
+    </table>
   </div>
 </div>
 
 <div class="row container">
+  <div class="small-12 columns">
     <h5>Add a new topic</h5>
     <%= form_for [@curriculum, @curriculum.topics.build] do |f| %>
       <div class="row">
@@ -31,5 +31,6 @@
         </div>
       </div>
     <% end %>  
+  </div>
 </div>
 

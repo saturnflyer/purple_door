@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :birthdate, presence: true
 
   has_many :events
+  has_many :user_worksheets
 
   def self.lookup_user user_id
     User.find(user_id[:id].to_i)
@@ -23,6 +24,14 @@ class User < ActiveRecord::Base
   def edit_info! edit_params
     self.update!(email: edit_params[:email], password: edit_params[:password], first_name: edit_params[:first_name], last_name: edit_params[:last_name], birthdate: edit_params[:birthdate])
   end
-  
+
   has_many :events
+
+  def admin?
+    permissions.any?
+  end
+
+  def employee?
+    permissions.none?
+  end
 end
