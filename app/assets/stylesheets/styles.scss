@@ -1,0 +1,38 @@
+$purple: #3B173B;
+$gold: #A38859;
+$light-purple: #4d1e4d;
+
+.top-bar {
+  background-color: $purple;
+  height: 60px;
+}
+
+li > a, h1 > a {
+  background-color: $purple !important;
+  transition: 0.5s;
+}
+
+li > a:hover, h1 > a:hover {
+  color: $gold !important;
+  transition: 0.5s;
+}
+
+#shield {
+  margin-top: 3px;
+  height: 50px;
+}
+
+#logo-title {
+  margin-top: 8px;
+  font-size: 1.25em;
+}
+
+.button {
+  background-color: $purple;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: $light-purple;
+  transition: 0.5s;
+}

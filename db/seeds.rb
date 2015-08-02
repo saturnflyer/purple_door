@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,52 +7,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.delete_all
-Curriculum.delete_all
-Topic.delete_all
-
-
-User.create(
+User.create!(
   email:                  "user@example.com",
   password:               "password",
   password_confirmation:  "password",
-  birthday:               Date.today,
+  birthdate:              Date.today,
   first_name:             'Example',
-  last_name:              'Last'
+  last_name:              'Last',
+  superuser:              true
 )
 
-curriculums = [
-  {
-    name: "Computer Skills",
-    topics: [
-      "Week 41 - Basic Computer Info",
-      "Week 42 - Word Docs Part 1.ppt",
-      "Week 42 - Word Docs Part 2.ppt"
-    ]
-  },
-  {
-    name: "Healthy Lifestyle",
-    topics: [
-      "Anger and Stress Management",
-      "Healthy Relationships",
-      "Mental Health"
-    ]
-  },
-  {
-    name: "Personal Planning",
-    topics: [
-      "Week 13 - Personal Planning"
-    ]
-  }
-]
-
-
-curriculums.each do |curriculum|
-  current = Curriculum.create(name: curriculum[:name])
-  curriculum[:topics].each do |topic|
-    current.topics.create(name: topic)
-  end
-end
+User.create!(
+  email:                  "employee@example.com",
+  password:               "password",
+  password_confirmation:  "password",
+  birthdate:              Date.today,
+  first_name:             'Example',
+  last_name:              'Last',
+  superuser:              true
+)
 
 worksheet = Worksheet.create(
   topic: Topic.first,
@@ -77,3 +51,30 @@ worksheet.questions << Question.create([
   {description: 'When dealing with Supervisor / Boss remember:'},
   {description: 'When dealing with customers remember:'}
 ])
+
+Event.delete_all
+dates = [
+  '2015-08-03',
+  '2015-08-04',
+  '2015-08-05',
+  '2015-08-06',
+  '2015-09-11',
+  '2015-10-20'
+]
+
+event_names = [
+  "Dave's Sober Day",
+  "1 year pingback",
+  "Michael's Birthday",
+  "Jane's Birthday",
+  "Thom's Training Completion",
+  "Mary's Graduation",
+  "Jerry's Probation End Date"
+]
+
+dates.each do |date|
+  num = rand(10) + 3
+  num.times do
+    Event.create(name: event_names[rand(3)], date: date)
+  end
+end
