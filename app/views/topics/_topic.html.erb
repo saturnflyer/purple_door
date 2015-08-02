@@ -9,10 +9,10 @@
     <%= topic.descendants.count if topic.descendants.count > 0 %>
   </td>
   <td class="text-right warning">
-    <!-- if admin -->
+    <% if can?(:manage_curriculum) %>
       <%= link_to "Add Sub Topic", new_curriculum_topic_path(@curriculum, :parent_id => topic), :class=>"success" %>
       |
       <%= link_to "Edit", edit_curriculum_topic_path(@curriculum, topic), :class=>"tiny" %>
-    <!-- end -->
+    <% end %>
   </td>
 </tr>
