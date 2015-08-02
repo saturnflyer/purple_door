@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="small-8 columns">
-
+    <%= render @events %>
   </div>
   <div class="small-4 columns">
 
@@ -24,7 +24,7 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
       <%= f.label :user_id, "User" %>
-      <%= f.collection_select :user_id, @users, :id, :first_name, include_blank: true %>
+      <%= f.collection_select :user_id, @users, :id, :full_name, include_blank: true %>
       <%= f.label :description %>
       <%= f.text_area :description %>
       <%= f.label :date %>
