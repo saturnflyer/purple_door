@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.url %></td>
+        <td><%= document.title %></td>
+        <td><%= link_to 'Show', curriculum_topic_document_path(@curriculum, @topic, document) %></td>
+        <td><%= link_to 'Edit', edit_curriculum_topic_document_path(@curriculum, @topic, document) %></td>
+        <td><%= link_to 'Destroy', curriculum_topic_document_path(@curriculum, @topic, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document', new_curriculum_topic_document_path(@curriculum, @topic) %>
