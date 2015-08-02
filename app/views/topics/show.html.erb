@@ -1,14 +1,14 @@
 <div class="row">
   <div class="small-12 columns">
     <h2><%= @topic.name %>
-      <!-- if admin -->
+      <% if can?(:manage_curriculum) %>
       <small class="edit_controls">
           <%= link_to "Edit", edit_curriculum_topic_path(@curriculum, @topic), :class=>"tiny button" %>
           <%= link_to "Add Sub Topic", new_curriculum_topic_path(@curriculum, :parent_id => @topic), :class=>"tiny button" %>
           <%= link_to "Add Document", new_curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic), :class => "tiny button" %>
           <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic), :class => "tiny button" %>
       </small>
-      <!-- end -->
+      <% end %>
     </h2>
   </div>
 </div>
@@ -18,11 +18,11 @@
   <div class="row container">
     <div class="small-12 columns">
       <h3>Sub Topics
-      <!-- if admin -->
+      <% if can?(:manage_curriculum) %>
         <small class="edit_controls">
           <%= link_to "Add Sub Topic", new_curriculum_topic_path(@curriculum, :parent_id => @topic), :class=>"tiny button" %>
         </small>
-      <!-- end -->
+      <% end %>
       </h3>
       <table class="small-12">
         <%= render @topic.descendants(:at_depth => 1) %>
@@ -35,14 +35,17 @@
   <div class="row">
     <div class="small-12 columns">
       <h3>Worksheets
-      <%= link_to "New Document", new_curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic) %>
+        <!-- if admin -->
+          <small class="edit_controls">
+              <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic), :class => "tiny button" %>
+          </small>
+        <!-- end -->
       </h3>
       <ul>
       <% @topic.worksheets.each do |worksheet| %>
         <li><%= link_to worksheet.title, edit_worksheet_path(curriculum: @curriculum, topic: @topic) %></li>
       <% end %>
       </ul>
-      <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic) %>
     </div>
   </div>
 <% end %>
@@ -51,8 +54,14 @@
 <% if @topic.documents.present? %>
   <div class="row">
     <div class="small-12 columns">
-      <h3>Documents</h3>
-      <table>
+      <h3>Documents
+        <!-- if admin -->
+          <small class="edit_controls">
+            <%= link_to "Add Document", new_curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic), :class => "tiny button" %>
+          </small>
+        <!-- end -->
+      </h3>
+      <table class="small-12">
         <thead>
         	<th>Title</th>
         	<th>Document Link</th>
@@ -70,4 +79,3 @@
   </div>
 <% end %>
 
-<!-- documents, ppt, wordsheets -->

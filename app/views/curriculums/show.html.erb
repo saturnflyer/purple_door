@@ -2,15 +2,16 @@
   <div class="small-12 columns">
     <h2><%= @curriculum.name %> Curriculum
       <small class="edit_controls">
-        <!-- if admin -->
+	<% if can?(:manage_curriculum) %>
           <%= link_to "Edit", edit_curriculum_path, :class=>"tiny button" %></span>
-        <!-- end -->
+        <% end %>
       </small>
     </h2>
-    
+
   </div>
 </div>
 
+<% if @topics.any? %>
 <div class="row container">
   <div class="small-12 columns">
     <h3>Topics</h3>
@@ -19,6 +20,7 @@
     </table>
   </div>
 </div>
+<% end %>
 
 <div class="row container">
   <div class="small-12 columns">
@@ -30,7 +32,6 @@
           <%= f.submit "Add new topic", class: 'button small' %>
         </div>
       </div>
-    <% end %>  
+    <% end %>
   </div>
 </div>
-

@@ -28,7 +28,7 @@ class DocumentsController < ApplicationController
       document_params.merge(topic_id: params[:topic_id]))
 
     if @document.save
-      redirect_to curriculum_topic_document_path(@curriculum, @topic, @document), notice: 'Document was successfully created.'
+      redirect_to curriculum_topic_path(@curriculum, @topic), notice: 'Document was successfully created.'
     else
       render :new
     end
