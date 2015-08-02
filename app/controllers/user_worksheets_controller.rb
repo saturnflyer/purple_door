@@ -8,10 +8,11 @@ class UserWorksheetsController < ApplicationController
   end
 
   def create
-    @user_worksheet = current_user.user_worksheets.new(user_worksheet_params)
+    @user_worksheet = current_user.user_worksheets.new(user_worksheet_params.merge(worksheet_id: params[:worksheet_id]))
     if user_worksheet.save
+
       flash[:notice] = 'Saved answers!'
-      redirect_to curriculum_topic_path(curriculum_id: worksheet.topic.curriculum_id, topic_id: worksheet.topic_id)
+      redirect_to curriculum_topic_path(worksheet.topic.curriculum_id, worksheet.topic_id)
     else
       render :new
     end
