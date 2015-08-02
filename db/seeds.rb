@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -10,7 +11,7 @@ User.create!(
   email:                  "user@example.com",
   password:               "password",
   password_confirmation:  "password",
-  birthday:               Date.today,
+  birthdate:              Date.today,
   first_name:             'Example',
   last_name:              'Last',
   superuser:              true
