@@ -15,6 +15,7 @@ gem 'ancestry', '~> 2.1.0'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'foundation-datetimepicker-rails'
+gem "figaro"
 
 group :development, :test do
   gem 'pry-byebug'

@@ -16,3 +16,5 @@
 !/log/.keep
 /tmp
 /vendor/cache/*
+# Ignore application configuration
+/config/application.yml
