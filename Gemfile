@@ -14,7 +14,6 @@ gem 'devise'
 gem 'ancestry', '~> 2.1.0'
 gem 'momentjs-rails'
 gem 'foundation-datetimepicker-rails'
-gem 'fullcalendar-rails'
 gem 'ancestry', '~> 2.1.0'
 gem "minitest-rails"
 
