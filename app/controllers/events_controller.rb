@@ -6,6 +6,14 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
+    @dates = {}
+    @events.each do |event|
+      if @dates[event.date]
+        @dates[event.date].push(event)
+      else
+        @dates[event.date] = [event]
+      end
+    end
   end
 
   def create
