@@ -35,17 +35,26 @@
   <div class="row">
     <div class="small-12 columns">
       <h3>Worksheets
-        <!-- if admin -->
+          <% if can?(:manage_curriculum) %>
           <small class="edit_controls">
               <%= link_to "Add Worksheet", new_worksheet_path(curriculum: @curriculum, topic: @topic), :class => "tiny button" %>
           </small>
-        <!-- end -->
+          <% end %>
       </h3>
-      <ul>
-      <% @topic.worksheets.each do |worksheet| %>
-        <li><%= link_to worksheet.title, edit_worksheet_path(curriculum: @curriculum, topic: @topic) %></li>
-      <% end %>
-      </ul>
+      <table>
+        <tbody>
+          <% @topic.worksheets.each do |worksheet| %>
+            <tr>
+              <td><%= worksheet.title %></td>
+              <% if admin? %>
+                <%= render partial: 'admin_worksheet_actions' %>
+              <% else %>
+                <%= render partial: 'user_worksheet_actions', locals: {worksheet: worksheet} %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 <% end %>

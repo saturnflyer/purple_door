@@ -1,0 +1,7 @@
+<% if user_worksheet = worksheet.user_worksheets.find_by(user: current_user) %>
+  <td><%= user_worksheet.status %></td>
+  <td><%= link_to 'Edit', edit_worksheet_user_worksheet_path(worksheet_id: worksheet) %></td>
+<% else %>
+  <td>not started</td>
+  <td><%= link_to 'Start Worksheet', new_worksheet_user_worksheet_path(worksheet_id: worksheet) %></td>
+<% end %>
