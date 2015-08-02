@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def authd_user(user = current_user))
+  def authd_user(user = current_user)
     AuthorizedUser.new(user)
   end
 
