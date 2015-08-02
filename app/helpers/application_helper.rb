@@ -1,17 +1,17 @@
 module ApplicationHelper
-  def authd_user
-    AuthorizedUser.new(current_user)
+  def authd_user(user = current_user))
+    AuthorizedUser.new(user)
   end
 
   def can?(permission)
     authd_user.can?(permission)
   end
 
-  def employee?
-    authd_user.employee?
+  def employee?(user = current_user)
+    authd_user(user)employee?
   end
 
-  def admin?
-    authd_user.admin?
+  def admin?(user = current_user)
+    authd_user(user).admin?
   end
 end
