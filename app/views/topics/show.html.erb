@@ -18,4 +18,26 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Documents</h2>
+    <table>
+      <thead>
+	<th>Title</th>
+	<th>Document Link</th>
+      </thead>
+      <tbody>
+	<% @topic.documents.each do |document| %>
+	  <tr>
+  	    <td><%= link_to document.title, curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic) %></td>
+	    <td><%= link_to "File", document.url %></td>
+	  </tr>
+	<% end %>
+      </tbody>
+    </table>
+    <%= link_to "New Document", new_curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic) %>
+  </div>
+</div>
+
+
 <!-- documents, ppt, wordsheets -->
