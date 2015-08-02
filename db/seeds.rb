@@ -98,5 +98,5 @@ User.create!(email: "superuser@purpledoorcoffee.com",
 
 # Setup forums
 User.where(superuser: true).each do |user|
-  user.create_thredded_user_detail
+  user.create_thredded_user_detail(superadmin: true)
 end

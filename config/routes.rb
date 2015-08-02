@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   authenticate do
-    mount Thredded::Engine => '/forum'
+    mount Thredded::Engine => '/forum', as: :forum
     delete '/users/sign_out', as: :session, to: 'devise/sessions#destroy'
   end
 

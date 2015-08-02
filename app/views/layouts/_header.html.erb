@@ -18,6 +18,7 @@
       <% if user_signed_in? %>
         <% if admin? %>
           <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to 'Forums', forum.root_path %></li>
         <% end %>
         <li><%= link_to "Events", events_path %></li>
         <li><%= link_to "Curriculums", curriculums_path %></li>

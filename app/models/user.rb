@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   alias to_s full_name
 
   def admin?
-    permissions.any?
+    superuser? || permissions.any?
   end
 
   def employee?
