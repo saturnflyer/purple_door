@@ -17,6 +17,16 @@ User.create!(
   superuser:              true
 )
 
+User.create!(
+  email:                  "employee@example.com",
+  password:               "password",
+  password_confirmation:  "password",
+  birthdate:              Date.today,
+  first_name:             'Example',
+  last_name:              'Last',
+  superuser:              true
+)
+
 worksheet = Worksheet.create(
   topic: Topic.first,
   title: 'COMMUNICATION & RELATIONSHIPS AT WORK',
