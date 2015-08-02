@@ -4,7 +4,11 @@ module TopicsHelper
     user_count  = topic.user_worksheets.where(user: user).count
 
     if total_count != 0 && user_count != 0
-      "(#{user_count}/#{total_count})"
+      if total_count == user_count
+        "(complete)"
+      else
+        "(#{user_count}/#{total_count})"
+      end
     end
   end
 end
