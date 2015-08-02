@@ -56,6 +56,8 @@ body {
 footer {
   text-align: center;
   font-size: 10px;
+  margin-top: 100px;
+  height: 60px;
 }
 .header{
   background-color: rgb(187, 224, 237);

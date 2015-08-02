@@ -1,0 +1,9 @@
+.event {
+  border-bottom: 1px solid #E0E0E0;
+  padding: 10px 5px;
+  display: block;
+  &:hover {
+    background: #EFEFEF;
+    cursor: pointer;
+  }
+}
