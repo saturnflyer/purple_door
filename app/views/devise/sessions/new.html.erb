@@ -4,7 +4,7 @@
       <p class="welcome"> Log In</p>
 
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
         <div class="row collapse">
           <div class="small-2 columns">
             <span class="prefix"><i class="fi-mail"></i></span>
