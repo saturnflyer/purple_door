@@ -16,4 +16,7 @@
 !/log/.keep
 /tmp
 /vendor/cache/*
+
+/config/application.yml
+
 **/.#*

@@ -94,11 +94,11 @@ ActiveRecord::Schema.define(version: 20150802145946) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "permissions",            default: [],              array: true
+    t.boolean  "superuser"
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthdate"
     t.string   "profile_image"
-    t.boolean  "superuser"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
