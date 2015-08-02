@@ -15,6 +15,7 @@ gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 gem 'twitter'
 gem 'figaro'
+gem "d3-rails"
 
 group :development, :test do
   gem 'pry-byebug'

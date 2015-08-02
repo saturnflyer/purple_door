@@ -16,7 +16,6 @@ class TweetsController < ApplicationController
   }
 
   def index
-
   end
 
   def show
@@ -37,7 +36,8 @@ class TweetsController < ApplicationController
         end
       end
     end
-
+    # render json: revenue_data.to_json
     @count = @tweets.count
+    @payload = [{ name: params[:handle], score: @score }, { name: "Ellen", score: 199  }, { name: "time4depression", score: -66 }].to_json
   end
 end
