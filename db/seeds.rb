@@ -24,8 +24,19 @@ User.create!(
   birthdate:              Date.today,
   first_name:             'Example',
   last_name:              'Last',
-  superuser:              true
+  superuser:              false
 )
+
+curriculum = Curriculum.create!(
+  name: "The First"
+)
+
+topics = %w[Topic1 Topic2 Topic3].map { |t|
+  Topic.create!(
+    curriculum: curriculum,
+    name: t
+  )
+}
 
 worksheet = Worksheet.create(
   topic: Topic.first,
