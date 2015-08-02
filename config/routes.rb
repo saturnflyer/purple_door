@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :curriculums, except: :new do
     resources :topics do
-      resources :documents
+      resources :documents, except: :index
     end
   end
 

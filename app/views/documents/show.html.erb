@@ -11,4 +11,5 @@
 </p>
 
 <%= link_to 'Edit', edit_curriculum_topic_document_path(@curriculum, @topic, @document) %> |
+<%= link_to 'Destroy', curriculum_topic_document_path(@curriculum, @topic, @document), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', curriculum_topic_path(@curriculum, @topic) %>

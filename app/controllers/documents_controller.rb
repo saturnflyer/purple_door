@@ -46,7 +46,7 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1
   def destroy
     @document.destroy
-    redirect_to curriculum_topic_document_url(@curriculum, @topic), notice: 'Document was successfully destroyed.'
+    redirect_to curriculum_topic_url(@curriculum, @topic), notice: 'Document was successfully destroyed.'
   end
 
   private

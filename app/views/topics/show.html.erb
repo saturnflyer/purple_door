@@ -29,7 +29,7 @@
       <tbody>
 	<% @topic.documents.each do |document| %>
 	  <tr>
-  	    <td><%= link_to document.title, curriculum_topic_document_path(curriculum_id: @curriculum.id, topic_id: @topic) %></td>
+  	    <td><%= link_to document.title, curriculum_topic_document_path(@curriculum, @topic, document) %></td>
 	    <td><%= link_to "File", document.url %></td>
 	  </tr>
 	<% end %>
