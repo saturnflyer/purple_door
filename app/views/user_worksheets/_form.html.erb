@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h3><%= worksheet.title %></h2>
+    <h4><b>Summary:</b></h4>
+    <h4><%= worksheet.summary %></h2>
+
+    <h4><b>Objectives:</b></h4>
+    <ul class='objectives'>
+    <% worksheet.objectives.each do |objective| %>
+      <li class='objective'><%= objective.description %></li>
+    <% end %>
+    </ul>
+
+    <%= form_for [:worksheet, user_worksheet] do |f| %>
+      <%= f.hidden_field :worksheet_id, value: user_worksheet.id %>
+      <% worksheet.questions.each do |question| %>
+        <%= f.fields_for :question_answers,
+          user_worksheet.question_answers.find_by(question_id: question.id) ||
+          user_worksheet.question_answers.new do |qa| %>
+          <div class='row'>
+            <p class='panel callout radius'><%= question.description %></p>
+            <%= qa.text_area :description, placeholder: 'Answer' %>
+            <%= qa.hidden_field :question_id, value: question.id %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class='row'>
+        <%= f.submit 'Save Answer', class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

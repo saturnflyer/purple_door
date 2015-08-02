@@ -4,6 +4,8 @@ class Topic < ActiveRecord::Base
   has_many :documents, dependent: :destroy
   validates :name, presence: true
 
-  has_ancestry
+  scope :top_level, ->{ where(ancestry: nil)}
 
+  has_ancestry cache_depth: true
+  
 end
