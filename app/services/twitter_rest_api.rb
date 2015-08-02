@@ -1,5 +1,6 @@
 require "twitter"
-TWEET_COUNT = 100
+
+TWEET_COUNT = 200
 
 class TwitterRestApi
   attr_reader :client
