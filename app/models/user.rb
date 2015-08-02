@@ -25,11 +25,8 @@ class User < ActiveRecord::Base
     self.update!(email: edit_params[:email], password: edit_params[:password], first_name: edit_params[:first_name], last_name: edit_params[:last_name], birthdate: edit_params[:birthdate])
   end
 
-  def admin?
-    permissions.any?
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
-  def employee?
-    permissions.none?
-  end
 end

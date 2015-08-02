@@ -12,7 +12,11 @@
       <div class="row">
         <div class="medium-6 small-12 columns">
           <%= f.text_field :name %>
-          <%= f.submit "Add Topic", class: 'button small' %>
+          <% if @topic.parent %>
+            <%= f.submit "Add Sub Topic", class: 'button small' %>
+          <% else %>
+            <%= f.submit "Add Topic", class: 'button small' %>
+          <% end %>
         </div>
       </div>
     <% end %>

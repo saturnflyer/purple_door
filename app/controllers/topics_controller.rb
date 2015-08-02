@@ -1,10 +1,10 @@
-class TopicsController < ApplicationController
+class TopicsController < ContentController
   before_action :load_curriculum
-  before_action :load_topic, only: [:show, :edit, :update]
+  before_action :load_topic, only: [:show, :edit, :update, :destroy]
 
   def create
     @topic = @curriculum.topics.create(topic_params)
-    redirect_to @curriculum
+    redirect_to [@curriculum, @topic.parent]
   end
 
   def show
@@ -23,6 +23,17 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new(:curriculum => @curriculum, :parent_id => params[:parent_id])
+  end
+
+  def destroy
+    @parent = @topic.parent
+    @topic.destroy
+    if @parent
+      redirect_to curriculum_topics_path(@curriculumn, @parent)
+    else
+      redirect_to curriculum_path(@curriculumn)
+    end
+
   end
 
   private

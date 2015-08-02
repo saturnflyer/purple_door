@@ -6,23 +6,19 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    #respond_to do |format|
-    #  format.html
-    #  format.json { render json: @events }
-    #end
   end
 
   def create
-  #  event = Event.create(event_params)
-  #  if event.save
-  #    redirect_to events_path
-  #  else
-  #    @event = event;
-  #    render :index
-  #  end
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to @event
+    else
+      render :index
+    end
   end
 
   def show
+    @user = User.find(@event.user_id)
   end
 
   def edit
@@ -52,7 +48,7 @@ class EventsController < ApplicationController
   end
 
   def load_events
-    @events = Event.all
+    @events = Event.all.sort_by &:date
   end
 
   def load_event

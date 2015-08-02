@@ -4,23 +4,27 @@
   </div>
 </div>
 
+<% if @curriculums.any? %>
 <div class="container">
   <table class="row twelve">
     <%= render @curriculums %>
   </table>
 </div>
+<% end %>
 
 <div class="row add_box">
   <div class="small-12">
     <!-- later, this will be a separate page where a custom list of topics can be made -->
-    <h5>Add a new curriculum</h5>
-    <%= form_for @curriculum do |f| %>
+    <% if can?(:manage_curriculum) %>
+      <h5>Add Curriculum</h5>
+      <%= form_for @curriculum do |f| %>
       <div class="row">
         <div class="medium-6 small-12 columns">
           <%= f.text_field :name %>
-          <%= f.submit "Add new curriculum", class: 'button small' %>
+          <%= f.submit "Add Curriculum", class: 'button small' %>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
