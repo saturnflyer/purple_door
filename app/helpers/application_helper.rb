@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def authd_user(user = current_user))
+  def authd_user(user = current_user)
     AuthorizedUser.new(user)
   end
 
@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def employee?(user = current_user)
-    authd_user(user)employee?
+    authd_user(user).employee?
   end
 
   def admin?(user = current_user)
