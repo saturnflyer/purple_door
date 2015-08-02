@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     return unless allowed("create_user")
 
-    if user = User.add_user(create_user_params)
+    if user = User.add_user!(create_user_params)
       flash[:notice] = "User added!"
       redirect_to user_path(user.id)
     else
