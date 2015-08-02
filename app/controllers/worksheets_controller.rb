@@ -1,5 +1,4 @@
-class WorksheetsController < ApplicationController
-
+class WorksheetsController < ContentController
   helper_method :worksheet
   attr_reader :worksheet
 

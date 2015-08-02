@@ -1,4 +1,4 @@
-class TopicsController < ApplicationController
+class TopicsController < ContentController
   before_action :load_curriculum
   before_action :load_topic, only: [:show, :edit, :update, :destroy]
 
@@ -33,7 +33,7 @@ class TopicsController < ApplicationController
     else
       redirect_to curriculum_path(@curriculumn)
     end
-    
+
   end
 
   private

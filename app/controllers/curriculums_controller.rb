@@ -1,5 +1,6 @@
-class CurriculumsController < ApplicationController
+class CurriculumsController < ContentController
   before_action :load_curriculum, only: [:show, :edit, :update]
+  skip_before_action :redirect_unless_can_manage_curriculum, only: :index
 
   def index
     @curriculums = Curriculum.all
