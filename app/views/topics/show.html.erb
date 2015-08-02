@@ -72,14 +72,12 @@
       </h3>
       <table class="small-12">
         <thead>
-        	<th>Title</th>
-        	<th>Document Link</th>
+        	<th>Document</th>
         </thead>
         <tbody>
         	<% @topic.documents.each do |document| %>
         	  <tr>
-          	    <td><%= link_to document.title, curriculum_topic_document_path(@curriculum, @topic, document) %></td>
-        	    <td><%= link_to "File", document.url %></td>
+        	    <td><%= link_to document.title, document.url %></td>
         	  </tr>
         	<% end %>
         </tbody>
