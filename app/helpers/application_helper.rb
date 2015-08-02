@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def employee?(user = current_user)
-    authd_user(user)employee?
+    authd_user(user).employee?
   end
 
   def admin?(user = current_user)
