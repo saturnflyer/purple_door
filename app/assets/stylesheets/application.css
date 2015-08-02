@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require fullcalendar
  *= require foundation_and_overrides
 
  */
@@ -55,13 +54,8 @@ body {
 }
 
 footer {
-  position: absolute;
   text-align: center;
   font-size: 10px;
-  left: 0;
-  bottom: 0;
-  height: 100px;
-  width: 100%;
 }
 .header{
   background-color: rgb(187, 224, 237);
@@ -77,6 +71,6 @@ footer {
 
 .edit_controls {
   float:right;
-  margin-top: 10px;
-  margin-right: 3px;
+  margin-top: 2px;
+  
 }

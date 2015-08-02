@@ -1,13 +1,18 @@
 <div class="row">
   <div class="small-12 columns">
-    <h5>Create a new topic</h5>
+    <h5>
+      <% if @topic.parent %>
+        New Sub Topic for <%= @topic.parent.name %>
+      <% else %>
+        New Topic
+      <% end %>
+    </h5>
     <%= form_for [@curriculum, @topic] do |f| %>
       <%= f.hidden_field :parent_id %>
       <div class="row">
         <div class="medium-6 small-12 columns">
-          <%= f.label :name %>
           <%= f.text_field :name %>
-          <%= f.submit "Add new topic", class: 'button small' %>
+          <%= f.submit "Add Topic", class: 'button small' %>
         </div>
       </div>
     <% end %>
