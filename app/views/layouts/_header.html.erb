@@ -4,7 +4,7 @@
       <h1>
         <%= link_to root_path do%>
           <%= image_tag "shield.png", id: "shield" %>
-          <span id="logo-title">Purple Gate</span>
+          <span id="logo-title">Purple Door</span>
         <% end %>
       </h1>
     </li>
@@ -16,7 +16,9 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-        <li><%= link_to "Users", users_path %></li>
+        <% if admin? %>
+          <li><%= link_to "Users", users_path %></li>
+        <% end %>
         <li><%= link_to "Events", events_path %></li>
         <li><%= link_to "Curriculums", curriculums_path %></li>
         <li class="has-dropdown">

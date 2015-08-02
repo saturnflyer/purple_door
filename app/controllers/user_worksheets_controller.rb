@@ -11,8 +11,7 @@ class UserWorksheetsController < ApplicationController
     @user_worksheet = current_user.user_worksheets.new(user_worksheet_params)
     if user_worksheet.save
       flash[:notice] = 'Saved answers!'
-      # TODO: need to replace this redirect path
-      redirect_to root_path
+      redirect_to curriculum_topic_path(curriculum_id: worksheet.topic.curriculum_id, topic_id: worksheet.topic_id)
     else
       render :new
     end
@@ -26,8 +25,7 @@ class UserWorksheetsController < ApplicationController
     @user_worksheet = current_user.user_worksheets.find(params[:id])
     if user_worksheet.update_attributes(user_worksheet_params)
       flash[:notice] = 'Saved answers!'
-      # TODO: need to replace this redirect path
-      redirect_to root_path
+      redirect_to curriculum_topic_path(curriculum_id: worksheet.topic.curriculum_id, topic_id: worksheet.topic_id)
     else
       render :edit
     end

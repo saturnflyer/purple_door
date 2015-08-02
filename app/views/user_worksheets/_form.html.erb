@@ -11,7 +11,7 @@
     <% end %>
     </ul>
 
-    <%= form_for [:worksheet, user_worksheet] do |f| %>
+    <%= form_for [worksheet, user_worksheet] do |f| %>
       <%= f.hidden_field :worksheet_id, value: user_worksheet.id %>
       <% worksheet.questions.each do |question| %>
         <%= f.fields_for :question_answers,
