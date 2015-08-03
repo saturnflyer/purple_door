@@ -28,9 +28,10 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias to_s full_name
 
   def admin?
-    permissions.any?
+    superuser? || permissions.any?
   end
 
   def employee?

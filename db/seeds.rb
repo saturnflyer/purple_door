@@ -89,3 +89,14 @@ dates.each do |date|
     Event.create(name: event_names[rand(3)], date: date)
   end
 end
+User.create!(email: "superuser@purpledoorcoffee.com",
+            password: "password",
+            superuser: true,
+            first_name: 'Admin',
+            last_name: 'Admin',
+            birthdate: Time.now)
+
+# Setup forums
+User.where(superuser: true).each do |user|
+  user.create_thredded_user_detail(superadmin: true)
+end
