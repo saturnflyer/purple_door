@@ -27,8 +27,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem "minitest-rails-capybara"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'shoulda-matchers'
 end

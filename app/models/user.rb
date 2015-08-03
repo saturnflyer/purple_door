@@ -4,11 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, :presence => true
   validates :email, presence: true,
                     uniqueness: true
-  validates :birthdate, presence: true
 
   has_many :events
   has_many :user_worksheets
@@ -26,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name} #{last_name}"
+    [first_name, last_name].compact.join(" ")
   end
   alias to_s full_name
 
