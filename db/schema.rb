@@ -289,11 +289,11 @@ ActiveRecord::Schema.define(version: 20150802145946) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "permissions",            default: [],              array: true
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthdate"
     t.string   "profile_image"
-    t.string   "permissions",            default: [],              array: true
     t.boolean  "superuser"
   end
 
