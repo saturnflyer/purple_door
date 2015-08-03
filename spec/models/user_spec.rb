@@ -31,11 +31,6 @@ RSpec.describe User do
     end
   end
 
-  describe "associations" do 
-    it "has many events"
-    it "has many user worksheets"
-  end
-
   describe ".full_name" do 
     it "returns a user's full name as a string" do 
       user = FactoryGirl.create(:user)
@@ -45,10 +40,41 @@ RSpec.describe User do
   end
 
   describe ".admin?" do 
-    it "returns true if a user is a admin"
+    it "returns true if a user has permissions" do 
+      user = FactoryGirl.build(:user, permissions: ["superuser"])
+      expect(user.admin?).to be_truthy
+    end
+
+    it "returns false if a user does not have permissions" do 
+      user = FactoryGirl.create(:user, permissions: [])
+      expect(user.admin?).to be_falsy
+    end
   end
 
   describe ".employee" do 
-    it "returns true if a user is an employee"
+    it "returns true if a user has no permissions" do 
+      user = FactoryGirl.create(:user, permissions: [])
+      expect(user.employee?).to be_truthy
+    end
+
+    it "returns false if a user has permissions" do 
+      user = FactoryGirl.create(:user, permissions: ["superuser"])
+      expect(user.employee?).to be_falsy
+    end
+  end
+
+  context "validations" do 
+    before { FactoryGirl.build(:user) }
+
+    it do 
+      should have_many(:events)
+    end
+
+    it do 
+      should have_many(:user_worksheets)
+    end
   end
 end
+
+
+

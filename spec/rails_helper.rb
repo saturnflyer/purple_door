@@ -8,6 +8,7 @@ require 'support/database_cleaner'
 require 'support/features/log_in'
 require 'capybara/rails'
 require 'factory_girl_rails'
+require 'shoulda/matchers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
