@@ -10,7 +10,8 @@
             <span class="prefix"><i class="fi-mail"></i></span>
           </div>
           <div class="small-10  columns">
-            <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+            <% f.label :email %>
+            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
           </div>
         </div>
 
@@ -19,7 +20,8 @@
             <span class="prefix"><i class="fi-lock"></i></span>
           </div>
           <div class="small-10 columns ">
-            <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
+            <% f.label :password %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
             <% if @minimum_password_length %>
               <br />
               <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -42,7 +44,7 @@
         <% end -%>
 
         <div class="actions">
-          <%= f.submit "Log in", :class => "button" %>
+          <%= f.submit "Sign in", :class => "button" %>
         </div>
       <% end %>
 

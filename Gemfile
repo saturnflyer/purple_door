@@ -14,7 +14,6 @@ gem 'devise'
 gem 'ancestry', '~> 2.1.0'
 gem 'momentjs-rails'
 gem 'foundation-datetimepicker-rails'
-gem 'ancestry', '~> 2.1.0'
 gem "minitest-rails"
 gem "figaro"
 
@@ -23,8 +22,15 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'spring'
 end
 
 group :test do
   gem "minitest-rails-capybara"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'faker'
 end

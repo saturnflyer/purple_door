@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :email, presence: true,
                     uniqueness: true
-  validates :birthdate, presence: true
 
   has_many :events
   has_many :user_worksheets
