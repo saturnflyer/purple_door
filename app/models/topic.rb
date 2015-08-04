@@ -3,7 +3,7 @@ class Topic < ActiveRecord::Base
   has_many :worksheets, dependent: :destroy
   has_many :documents, dependent: :destroy
   has_many :user_worksheets, through: :worksheets
-  validates :name, presence: true
+  validates :name, :curriculum_id, presence: true
 
   scope :top_level, ->{ where(ancestry: nil)}
 
