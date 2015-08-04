@@ -18,6 +18,7 @@ gem 'ancestry', '~> 2.1.0'
 gem 'momentjs-rails'
 gem "minitest-rails"
 gem "figaro"
+gem 'net-ssh', '2.10.1.rc1'
 gem 'thredded', git: 'https://github.com/jayroh/thredded.git', ref: '2455c25ba65b33d2ccef25b920f8081851445a63'
 gem 'bourbon', '4.2.3'
 gem 'neat', '1.7.2'
