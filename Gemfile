@@ -16,10 +16,10 @@ gem 'passenger'
 gem 'devise'
 gem 'ancestry', '~> 2.1.0'
 gem 'momentjs-rails'
-gem "minitest-rails"
-gem "figaro"
+gem 'minitest-rails'
+gem 'figaro'
 gem 'net-ssh', '2.10.1.rc1'
-gem 'thredded', git: 'https://github.com/jayroh/thredded.git', ref: '2455c25ba65b33d2ccef25b920f8081851445a63'
+gem 'thredded', git: 'https://github.com/jayroh/thredded.git', ref: '0621df73dda11a104f01b15b818f99ba0bdd3793'
 gem 'bourbon', '4.2.3'
 gem 'neat', '1.7.2'
 gem 'bitters', '1.0.0'
@@ -34,7 +34,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "minitest-rails-capybara"
+  gem 'minitest-rails-capybara'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'
