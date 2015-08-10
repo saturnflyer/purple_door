@@ -1,0 +1,34 @@
+.form-list {
+  &.on-top {
+    border-bottom: $base-border;
+    margin-bottom: $base-spacing * 1.5;
+    padding-bottom: $small-spacing;
+  }
+
+  li {
+    @include transition();
+    margin-bottom: $small-spacing;
+  }
+
+  label {
+    @include transition();
+  }
+}
+
+.form-list--admin-options {
+  label {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: $base-spacing;
+  }
+}
+
+.form-list--hint {
+  color: lighten($base-font-color, 20%);
+  display: inline-block;
+  font-size: rem(14);
+  margin-bottom: $small-spacing;
+  position: relative;
+  top: -($small-spacing / 2);
+}

@@ -1,0 +1,43 @@
+.main-navigation {
+  @include row;
+  border-bottom: $base-border;
+  margin-bottom: $base-spacing;
+  margin-top: $small-spacing;
+}
+
+.navigation-breadcrumbs {
+  margin-bottom: $small-spacing;
+
+  @include media(rem(600)) {
+    float: left;
+    margin-bottom: 0;
+    padding-bottom: $base-spacing;
+  }
+
+  li {
+    display: inline-block;
+
+    &:after {
+      @include size(6px 10px);
+      background-image: image-url("thredded/breadcrumb-chevron.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      content: "";
+      display: inline-block;
+      margin: 0 $small-spacing;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+
+  a {
+    color: $base-font-color;
+    font-weight: bold;
+
+    &:hover {
+      color: $action-color;
+    }
+  }
+}

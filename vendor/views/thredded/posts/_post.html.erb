@@ -1,0 +1,20 @@
+<% cache [current_user, 'post', post] do %>
+  <% post = Thredded::PostDecorator.new(post) %>
+
+  <%= content_tag_for :article, post do %>
+    <header>
+      <%= image_tag post.avatar_url, class: 'post--avatar' unless post.user_anonymous? %>
+      <h2 class="post--user"><%= post.user_link %></h2>
+      <p class="post--created-at"><%= post.created_at_timeago %></p>
+
+    </header>
+
+    <div class="post--content">
+      <%== post.filtered_content %>
+    </div>
+
+    <% if current_ability.can? :edit, post.original %>
+      <%= link_to 'Edit Post', edit_polymorphic_path([messageboard, post.postable, post]), class: 'post--edit' %>
+    <% end %>
+  <% end %>
+<% end %>

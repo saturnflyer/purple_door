@@ -1,0 +1,47 @@
+.topic-navigation {
+  @include media(rem(600)) {
+    float: right;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: $base-spacing;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    color: lighten($base-font-color, 10%);
+    display: block;
+    padding-bottom: $base-spacing;
+
+    &:hover {
+      color: $action-color;
+    }
+  }
+
+}
+
+.thredded-new-topic .topic-navigation--public,
+.thredded-topics-index .topic-navigation--public,
+.thredded-new-private-topic .topic-navigation--private,
+.thredded-private-topics-index .topic-navigation--private {
+  border-bottom: 1px solid $action-color;
+  margin-bottom: -2px;
+
+  a {
+    color: $action-color;
+  }
+}
+
+.topic-navigation--unread {
+  background-color: $action-color;
+  border-radius: 10px;
+  color: #fff;
+  font-size: rem(10);
+  line-height: 1;
+  margin-left: $small-spacing;
+  padding: 2px 5px;
+}
