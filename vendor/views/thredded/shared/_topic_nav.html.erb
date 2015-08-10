@@ -1,0 +1,21 @@
+<div class="main-navigation">
+  <%= yield :thredded_breadcrumbs %>
+
+  <% if messageboard.try(:persisted?) %>
+    <ul class="topic-navigation">
+      <li class="topic-navigation--public">
+        <%= link_to 'Topics', messageboard_topics_path(messageboard) %>
+      </li>
+      <li class="topic-navigation--private">
+        <%= link_to messageboard_private_topics_path(messageboard), class: "unread-#{unread_private_topics_count}" do %>
+          Private Topics
+          <% if unread_private_topics_count > 0 %>
+            <span class="topic-navigation--unread">
+              <%= unread_private_topics_count %>
+            </span>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+</div>

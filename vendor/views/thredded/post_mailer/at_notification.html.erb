@@ -1,0 +1,14 @@
+<%== @post.filtered_content %>
+
+<hr />
+
+<p>
+  This email was sent to you because <%= @post.user %> mentioned you in
+  "<%= link_to @post.postable.title, messageboard_topic_posts_url(@post.messageboard, @post.postable, anchor: "post_#{@post.id}") %>".
+  <%= link_to 'View the conversation here.', messageboard_topic_posts_url(@post.messageboard, @post.postable) %>
+</p>
+
+<p>
+  To unsubscribe from these emails, update your
+  <%= link_to 'preferences', edit_messageboard_preferences_url(@post.messageboard) %>.
+</p>
