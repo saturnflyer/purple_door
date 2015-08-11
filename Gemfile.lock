@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/jayroh/thredded.git
-  revision: 9ad4edc84140a86a5b76e0718ae63f142742b35c
-  ref: 9ad4edc84140a86a5b76e0718ae63f142742b35c
+  revision: a6e35825a48e3bca3f95a04e97c8c881ef716f83
+  ref: a6e35825a48e3bca3f95a04e97c8c881ef716f83
   specs:
     thredded (0.1.0)
       bbcoder (~> 1.0)
@@ -107,7 +107,7 @@ GEM
     crass (1.0.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
-    devise (3.5.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -134,7 +134,7 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     gemoji (2.1.0)
-    github-markdown (0.6.8)
+    github-markdown (0.6.9)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gravtastic (3.2.6)
@@ -305,8 +305,8 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  bitters (= 1.0.0)
-  bourbon (= 4.2.3)
+  bitters
+  bourbon
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -320,7 +320,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   momentjs-rails
-  neat (= 1.7.2)
+  neat
   net-ssh (= 2.10.1.rc1)
   passenger
   pg
@@ -337,4 +337,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.10.3
