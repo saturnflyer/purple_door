@@ -20,10 +20,11 @@ gem 'momentjs-rails'
 gem 'minitest-rails'
 gem 'figaro'
 gem 'net-ssh', '2.10.1.rc1'
-gem 'bourbon', '4.2.3'
-gem 'neat', '1.7.2'
-gem 'bitters', '1.0.0'
-gem 'thredded', git: 'https://github.com/jayroh/thredded.git', ref: '9ad4edc84140a86a5b76e0718ae63f142742b35c'
+
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'thredded', git: 'https://github.com/jayroh/thredded.git', ref: 'a6e35825a48e3bca3f95a04e97c8c881ef716f83'
 
 group :development, :test do
   gem 'pry-byebug'
