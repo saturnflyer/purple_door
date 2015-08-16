@@ -1,23 +1,32 @@
-<h1>Users</h1>
-<table>
-  <thead>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-    <th>Role</th>
-    <th></th>
-  </thead>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td><%= user.email %></td>
-      <td><%= admin?(user) ? "Admin" : "Employee" %></td>
-      <td><%= link_to "View",  user_path(user.id) %> | <%= link_to "Edit",  edit_user_path(user.id) %></td>
-    </tr>
- <% end %>
-</table>
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Users</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th></th>
+      </thead>
+    <% @users.each do |user| %>
+      <tr>
+       <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= admin?(user) ? "Admin" : "Employee" %></td>
+        <td><%= link_to "View",  user_path(user.id) %> | <%= link_to "Edit",  edit_user_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </table>
 <br>
-<%= link_to "Add New User", new_user_path, class: "button tiny" %>
+  <%= link_to "Add New User", new_user_path, class: "button tiny" %>
+  </div>
+</div>
+
 
 
