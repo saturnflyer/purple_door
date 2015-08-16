@@ -1,19 +1,23 @@
-<h1>Update User Info</h1>
+<div class="row">
+  <div class="medium-8 columns">
+<h2>Update User Info</h2>
 
-<%= form_for @user, url: user_path(@user), method: :patch do |f| %>
-  <%= f.label "Email" %>
-  <%= f.email_field :email, placeholder: @user.email %>
-  <br>
-  <%= f.label "First Name" %>
-  <%= f.text_field :first_name, placeholder: @user.first_name %>
-  <br>
-  <%= f.label "Last Name" %>
-  <%= f.text_field :last_name, placeholder: @user.last_name %>
-  <br>
-  <%= f.label "Birthdate" %>
-  <%= f.date_field :birthdate, placeholder: @user.birthdate %>
-  <br>
-  <%= f.hidden_field :id, value: @user.id %>
+    <%= form_for @user, url: user_path(@user), method: :patch do |f| %>
+      <%= f.label "Email" %>
+      <%= f.email_field :email, placeholder: @user.email %>
+      <br>
+      <%= f.label "First Name" %>
+      <%= f.text_field :first_name, placeholder: @user.first_name %>
+      <br>
+      <%= f.label "Last Name" %>
+      <%= f.text_field :last_name, placeholder: @user.last_name %>
+      <br>
+      <%= f.label "Birthdate" %>
+      <%= f.date_field :birthdate, placeholder: @user.birthdate %>
+      <br>
+      <%= f.hidden_field :id, value: @user.id %>
 
-  <button>Update User Info</button>
-<% end %>
+      <button>Update User Info</button>
+    <% end %>
+  </div>
+</div>
