@@ -4,7 +4,7 @@
     <% u = AuthorizedUser.new(current_user) %>
     <% if u.can?("edit_user") %>
       <div>
-        <%= link_to "Edit User Info", edit_user_path(@user.id) %>
+          <%= link_to "Edit User Info", edit_user_path(@user.id) %>
       </div>
     <% end %>
     <% if u.can?("manage_permissions") %>
