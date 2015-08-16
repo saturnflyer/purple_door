@@ -7,16 +7,16 @@
   <div class="small-12 columns">
     <table>
       <thead>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th class="show_column">First Name</th>
+        <th class="show_column">Last Name</th>
         <th>Email</th>
         <th>Role</th>
         <th></th>
       </thead>
     <% @users.each do |user| %>
       <tr>
-       <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+       <td class="show_column"><%= user.first_name %></td>
+        <td class="show_column"><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= admin?(user) ? "Admin" : "Employee" %></td>
         <td><%= link_to "View",  user_path(user.id) %> | <%= link_to "Edit",  edit_user_path(user.id) %></td>
