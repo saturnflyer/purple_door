@@ -63,6 +63,29 @@ RSpec.describe User do
     end
   end
 
+  describe ".lookup_user(user_id)" do
+    before { FactoryGirl.create(:user) }
+
+    it "is invalid without an argument" do
+      expect { User.lookup_user }.to raise_error(ArgumentError)
+    end
+
+    it "is invalid without a user_id argument" do
+      expect { User.lookup_user(1) }.to raise_error(TypeError)
+    end
+
+    it "returns the correct user" do
+      expect(User.lookup_user(id: 1)).to eq(User.find(1))
+    end
+  end
+
+  describe ".add_user!(user_params)" do
+    it "adds user"
+    it "validates all user params are present"
+    it "returns validation needed error for missing params"
+    it "returns unpermitted params for SQL injection attempt"
+  end
+
   context "associations" do
     before { FactoryGirl.build(:user) }
 
