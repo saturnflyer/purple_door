@@ -17,6 +17,9 @@
 /tmp
 /vendor/cache/*
 
+# Ignore simplecov results
+coverage
+
 /config/application.yml
 
 **/.#*
