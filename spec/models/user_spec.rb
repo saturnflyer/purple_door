@@ -80,10 +80,60 @@ RSpec.describe User do
   end
 
   describe ".add_user!(user_params)" do
-    it "adds user"
-    it "validates all user params are present"
-    it "returns validation needed error for missing params"
-    it "returns unpermitted params for SQL injection attempt"
+    let(:just_created) do User.add_user!(
+      {
+        :email => "email@test.com",
+        :password => "pAssw0rD!",
+        :first_name => "Sam",
+        :last_name => "Smith",
+        :birthdate => "2000-08-10"
+      })
+    end
+
+    let(:no_email) do User.add_user!(
+      {
+        :password => "pAssw0rD!",
+        :first_name => "Sam",
+        :last_name => "Smith",
+        :birthdate => "2000-08-10"
+      })
+    end
+
+    it "adds user" do
+      expect(just_created[:email]).to eq(User.last[:email])
+      expect(just_created[:last_name]).to eq(User.last[:last_name])
+      expect(just_created[:first_name]).to eq("Sam")
+    end
+
+    it "returns validation needed error for missing params" do
+      expect { no_email }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
+  describe ".edit_info!(user_params)" do
+    let(:just_created) do User.add_user!(
+      {
+        :email => "email@test.com",
+        :password => "pAssw0rD!",
+        :first_name => "Sam",
+        :last_name => "Smith",
+        :birthdate => "2000-08-10"
+      })
+    end
+
+    it "edits user info" do
+      current_user = just_created
+      current_user.edit_info!(
+        {
+          :email => "email@test.com",
+          :password => "pAssw0rD!",
+          :first_name => "Bob",
+          :last_name => "Smith",
+          :birthdate => "2000-08-15"
+        })
+      expect(just_created[:first_name]).to eq("Bob")
+      expect(just_created[:birthdate]).to eq("2000-08-15".to_date)
+    end
   end
 
   context "associations" do
