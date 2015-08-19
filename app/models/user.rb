@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  ActionController::Parameters.action_on_unpermitted_parameters = :raise
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
