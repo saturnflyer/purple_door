@@ -41,4 +41,5 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'simplecov', :require => false
 end

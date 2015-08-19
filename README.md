@@ -55,7 +55,11 @@ holding a job after graduation...etc.
 * Clone the repo: `git clone git@github.com:saturnflyer/purple_door.git`
 * `bundle install`
 * `bundle exec rake db:setup`
+
+## Test Suite
+
 * `bundle exec rake` to run the test suite
+* `open coverage/index.html` to open simplecov
 
 ## Using rails server
 
