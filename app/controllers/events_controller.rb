@@ -7,13 +7,7 @@ class EventsController < ApplicationController
   def index
     @event = Event.new
     @dates = {}
-    @events.each do |event|
-      if @dates[event.date]
-        @dates[event.date].push(event)
-      else
-        @dates[event.date] = [event]
-      end
-    end
+    @events.group_by(&:date)
   end
 
   def create
@@ -26,8 +20,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    if (@event.user_id)
-      @user = User.find(@event.user_id)
+    if @event.user_id
+      @user = @event.user
     end
   end
 
