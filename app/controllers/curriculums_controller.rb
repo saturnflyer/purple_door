@@ -9,8 +9,12 @@ class CurriculumsController < ContentController
 
   def create
     @curriculum = Curriculum.new(curriculum_params)
-    @curriculum.save
-    redirect_to curriculums_path
+    if @curriculum.save
+      redirect_to curriculums_path
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      redirect_to new_curriculum_path
+    end
   end
 
   def show
@@ -25,6 +29,7 @@ class CurriculumsController < ContentController
     if @curriculum.update(curriculum_params)
       redirect_to @curriculum
     else
+      flash[:alert] = "Something went wrong. Please try again."
       render :edit
     end
   end
