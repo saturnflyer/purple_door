@@ -10,16 +10,19 @@ RSpec.describe User do
     it "is invalid without a first name" do 
       user = FactoryGirl.build(:user, first_name: nil)
       expect(user).not_to be_valid
+      expect(user.errors.messages.keys).to include(:first_name)
     end
 
     it "is invalid without a last name" do 
       user = FactoryGirl.build(:user, last_name: nil)
       expect(user).not_to be_valid
+      expect(user.errors.messages.keys).to include(:last_name)
     end
 
     it "is invalid without an email" do 
       user = FactoryGirl.build(:user, email: nil)
       expect(user).not_to be_valid
+      expect(user.errors.messages.keys).to include(:email)
     end
 
     it "is invalid without a unique email" do 
@@ -28,6 +31,7 @@ RSpec.describe User do
 
       expect(user1).to be_valid
       expect(user2).not_to be_valid
+      expect(user2.errors.messages.keys).to include(:email)
     end
   end
 
